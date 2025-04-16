@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-dark: #246B44;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background-light: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7f4;
+            text-align: center;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5em;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background: var(--background-light);
+            padding: 1em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            background: var(--background-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .hero-content {
+            flex: 1;
+            width: 50%;
+            max-width: none;
+            padding: 80px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            gap: 25px;
+        }
+
+        .hero-image {
+            flex: 1;
+            width: 50%;
+            max-width: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0 8%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            min-height: 60vh;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .hero h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--background-light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(1);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin: 20px 0 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(46,139,87,0.2);
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46,139,87,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero-image img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .feature-grid {
+                padding: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Initialize hero section animations
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            if (heroContent && heroImage) {
+                heroContent.classList.add('animate-slide-left');
+                heroImage.classList.add('animate-slide-right');
+            }
+
+            // Get Started button functionality
+            const getStartedBtn = document.querySelector('.hero-content button');
+            if (getStartedBtn) {
+                getStartedBtn.addEventListener('click', function() {
+                    document.querySelector('#how-it-works').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Intersection Observer for features
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all feature elements
+            document.querySelectorAll('.feature').forEach((feature, index) => {
+                feature.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(feature);
+            });
+        });
+    </script>
+    <header>
+        <img src="logo.jpg" alt="Mental Wellness Logo" style="height: 50px; margin-right: 15px;">
+        <h1>Mental Wellness</h1>
+        <nav>
+            <a href="#home" onclick="scrollToSection('home')">Home</a>
+            <a href="#about" onclick="scrollToSection('about')">About</a>
+            <a href="appointments.html">Services</a>
+            <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content">
+            <h2>Your Journey to Mental Wellness</h2>
+            <p>Take the first step towards a healthier mind. Our professional team is here to support and guide you through your mental wellness journey.</p>
+            <button>Get Started</button>
+        </div>
+        <div class="hero-image">
+            <img src="myimage.jpg" alt="Mental Wellness Journey" style="width: 400px; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+    <h2 style="text-align: center; margin: 40px 0; color: var(--primary-color); font-size: 2.5em; font-weight: 600;">Your Wellness Guide</h2>
+    <div class="feature-grid">
+        <div class="feature-card" onclick="showTipsModal('sleep')">
+            <img src="sleep.jpg" alt="Sleep Tips" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+            <h3>Sleep Tips</h3>
+            <p>Learn about healthy sleep habits and techniques for better rest and recovery.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+        <div class="feature-card" onclick="showTipsModal('nutrition')">
+            <img src="food.jpg" alt="Nutritional Diets" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+            <h3>Nutritional Diets</h3>
+            <p>Discover balanced meal plans and dietary guidance for optimal mental health.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+        <div class="feature-card" onclick="showTipsModal('physical')">
+            <img src="meditate.jpg" alt="Physical Health" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+            <h3>Physical Health</h3>
+            <p>Explore exercises and activities that promote both physical and mental well-being.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Modal for displaying tips -->
+    <div id="tipsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        function showTipsModal(category) {
+            const modal = document.getElementById('tipsModal');
+            const modalContent = document.getElementById('modalContent');
+            let content = '';
+
+            switch(category) {
+                case 'sleep':
+                    content = `
+                        <h2>Sleep Tips & Guidelines</h2>
+                        <ul>
+                            <li>Maintain a consistent sleep schedule</li>
+                            <li>Create a relaxing bedtime routine</li>
+                            <li>Optimize your sleep environment (dark, quiet, cool)</li>
+                            <li>Limit screen time before bed</li>
+                            <li>Avoid caffeine and heavy meals before bedtime</li>
+                            <li>Practice relaxation techniques like deep breathing</li>
+                        </ul>
+                        <h3>Recommended Sleep Duration</h3>
+                        <p>Adults should aim for 7-9 hours of quality sleep per night</p>
+                    `;
+                    break;
+                case 'nutrition':
+                    content = `
+                        <h2>Nutritional Guidelines for Mental Health</h2>
+                        <ul>
+                            <li>Include omega-3 rich foods (fish, nuts, seeds)</li>
+                            <li>Eat plenty of fruits and vegetables</li>
+                            <li>Choose whole grains over refined grains</li>
+                            <li>Stay hydrated throughout the day</li>
+                            <li>Limit processed foods and added sugars</li>
+                            <li>Include protein-rich foods in every meal</li>
+                        </ul>
+                        <h3>Meal Planning Tips</h3>
+                        <p>Plan your meals ahead and keep healthy snacks readily available</p>
+                    `;
+                    break;
+                case 'physical':
+                    content = `
+                        <h2>Physical Wellness Activities</h2>
+                        <ul>
+                            <li>Aim for 30 minutes of moderate exercise daily</li>
+                            <li>Include both cardio and strength training</li>
+                            <li>Practice yoga or stretching for flexibility</li>
+                            <li>Take regular walking breaks during work</li>
+                            <li>Try mindful movement exercises</li>
+                            <li>Join group fitness activities for motivation</li>
+                        </ul>
+                        <h3>Getting Started</h3>
+                        <p>Start slowly and gradually increase intensity as you build strength and endurance</p>
+                    `;
+                    break;
+            }
+
+            modalContent.innerHTML = content;
+            modal.style.display = 'block';
+
+            // Close modal when clicking the X
+            document.querySelector('.close-modal').onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+    </script>
+    <h2 style="text-align: center; margin: 40px 0; color: var(--primary-color); font-size: 2.5em; font-weight: 600;">Our Mentors</h2>
+    <div class="feature-grid">
+        <div class="feature-card" onclick="window.location.href='appointments.html'">
+            <img src="threp2.jpg" alt="Dr. Sarah Johnson" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px;">
+            <h3>Dr. Sarah Johnson</h3>
+            <p>Clinical Psychologist specializing in anxiety and depression management.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='appointments.html'">
+            <img src="therp1.jpg" alt="Dr. Michael Chen" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px;">
+            <h3>Dr. Michael Chen</h3>
+            <p>Mental Health Counselor with expertise in stress and trauma therapy.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='appointments.html'">
+            <img src="therp3.jpg" alt="Dr. Emily Martinez" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px;">
+            <h3>Dr. Emily Martinez</h3>
+            <p>Wellness Coach focusing on holistic mental health approaches.</p>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    /* Animation classes for hero section */
+    .animate-slide-left {
+        animation: slideInLeft 1s ease-out forwards;
+        opacity: 0;
+    }
+
+    .animate-slide-right {
+        animation: slideInRight 1s ease-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for feature sections */
+    .feature {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .feature.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 70%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .close-modal {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close-modal:hover {
+        color: #000;
+    }
+
+    .learn-more-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-top: 15px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(46,139,87,0.2);
+    }
+
+    .learn-more-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(46,139,87,0.3);
+    }
+
+    #modalContent {
+        margin-top: 20px;
+    }
+
+    #modalContent h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+
+    #modalContent ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    #modalContent li {
+        margin: 10px 0;
+        color: var(--text-dark);
+    }
+
+    #modalContent h3 {
+        color: var(--primary-dark);
+        margin: 15px 0;
+    }
+
+    #modalContent p {
+        color: var(--text-light);
+    }
+
+    .feature-card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover img {
+        transform: scale(1.2);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+</style>
+<div class="gamification-section">
+    <h2 style="text-align: center; margin: 40px 0; color: var(--primary-color); font-size: 2.5em; font-weight: 600;">Your Wellness Journey</h2>
+    <div class="progress-container">
+        <div class="progress-card">
+            <h3>Meditation Streak</h3>
+            <div class="progress-circle" data-progress="0">
+                <span class="progress-text">0/7</span>
+            </div>
+            <p>Complete 7 days of meditation</p>
+            <button onclick="updateProgress('meditation')">Log Meditation</button>
+        </div>
+        <div class="progress-card">
+            <h3>Sleep Goals</h3>
+            <div class="progress-circle" data-progress="0">
+                <span class="progress-text">0/5</span>
+            </div>
+            <p>Achieve 5 good nights of sleep</p>
+            <button onclick="updateProgress('sleep')">Log Sleep</button>
+        </div>
+        <div class="progress-card">
+            <h3>Mindful Eating</h3>
+            <div class="progress-circle" data-progress="0">
+                <span class="progress-text">0/3</span>
+            </div>
+            <p>Track 3 mindful meals</p>
+            <button onclick="updateProgress('eating')">Log Meal</button>
+        </div>
+    </div>
+    <div id="achievement-popup" class="achievement-popup">
+        <img src="badge.png" alt="Achievement Badge">
+        <h3>Achievement Unlocked!</h3>
+        <p id="achievement-text"></p>
+    </div>
+</div>
+
+<style>
+    .gamification-section {
+        padding: 40px 20px;
+        background: var(--background-light);
+    }
+
+    .progress-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .progress-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .progress-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        margin: 20px auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .progress-circle::before {
+        content: '';
+        position: absolute;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    .progress-text {
+        position: relative;
+        z-index: 1;
+        font-size: 1.2em;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .achievement-popup {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+<script>
+    // Initialize progress tracking
+    let progress = JSON.parse(localStorage.getItem('wellnessProgress')) || {
+        meditation: 0,
+        sleep: 0,
+        eating: 0
+    };
+
+    // Maximum values for each activity
+    const maxProgress = {
+        meditation: 7,
+        sleep: 5,
+        eating: 3
+    };
+
+    // Achievement messages
+    const achievements = {
+        meditation: 'Zen Master: Completed 7 days of meditation!',
+        sleep: 'Sleep Champion: Achieved 5 nights of quality sleep!',
+        eating: 'Mindful Eater: Tracked 3 mindful meals!'
+    };
+
+    // Update progress for an activity
+    function updateProgress(activity) {
+        if (progress[activity] < maxProgress[activity]) {
+            progress[activity]++;
+            localStorage.setItem('wellnessProgress', JSON.stringify(progress));
+            updateProgressCircles();
+
+            // Check if milestone achieved
+            if (progress[activity] === maxProgress[activity]) {
+                showAchievement(activity);
+            }
+        }
+    }
+
+    // Update visual progress circles
+    function updateProgressCircles() {
+        for (const activity in progress) {
+            const cards = document.querySelectorAll('.progress-card');
+            cards.forEach(card => {
+                const heading = card.querySelector('h3');
+                if (heading && heading.textContent.toLowerCase().includes(activity.toLowerCase())) {
+                    const circle = card.querySelector('.progress-circle');
+                    const text = circle.querySelector('.progress-text');
+                    const percentage = (progress[activity] / maxProgress[activity]) * 100;
+                    
+                    circle.style.background = `conic-gradient(var(--primary-color) ${percentage}%, #f0f0f0 ${percentage}%)`;
+                    text.textContent = `${progress[activity]}/${maxProgress[activity]}`;
+                }
+            });
+        }
+    }
+
+    // Show achievement popup
+    function showAchievement(activity) {
+        const popup = document.getElementById('achievement-popup');
+        const text = document.getElementById('achievement-text');
+        text.textContent = achievements[activity];
+        popup.style.display = 'block';
+
+        // Hide popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+    // Initialize progress circles on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProgressCircles();
+    });
+</script>
+</html>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe hero content and features
+    document.querySelector('.hero-content').classList.add('animate-element');
+    document.querySelector('.hero-image').classList.add('animate-element');
+    
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.classList.add('animate-element');
+        observer.observe(feature);
+    });
+
+    // Add hover effect for features
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.classList.add('feature-hover');
+        });
+        feature.addEventListener('mouseleave', () => {
+            feature.classList.remove('feature-hover');
+        });
+    });
+</script>
+
+<style>
+    .animate-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    }
+
+    .hero-content {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: fadeInRight 1.2s ease-out forwards;
+    }
+
+    .how-it-works {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    .feature {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .feature.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .feature:hover img {
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+        transform: translateY(0);
+    }
+
+    .feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero-content {
+        animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: slideInRight 1s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+</html>
+</body>
+</html>
+
+<div id="achievement-popup" class="achievement-popup">
+    <div class="achievement-content">
+        <h3>Achievement Unlocked! 🎉</h3>
+        <p id="achievement-text"></p>
+    </div>
+</div>
+
+<style>
+    .wellness-tracking {
+        padding: 40px;
+        background: #fff;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 1200px;
+    }
+
+    .progress-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .progress-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .progress-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .achievement-popup {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    .achievement-content h3 {
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+    }
+
+    .achievement-content p {
+        margin: 0;
+        color: var(--text-light);
+    }
+</style>
+</html>
+</body>
+</html>
+
+<section id="contact" class="contact-section" style="padding: 80px 20px; background-color: #f9f9f9;">
+    <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary-color); font-size: 2.5em; font-weight: 600;">Contact Us</h2>
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+            <div style="margin-bottom: 20px;">
+                <label for="name" style="display: block; margin-bottom: 8px; color: var(--text-dark); font-weight: 500;">Name</label>
+                <input type="text" id="contactName" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block; margin-bottom: 8px; color: var(--text-dark); font-weight: 500;">Email</label>
+                <input type="email" id="contactEmail" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="subject" style="display: block; margin-bottom: 8px; color: var(--text-dark); font-weight: 500;">Subject</label>
+                <input type="text" id="contactSubject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="message" style="display: block; margin-bottom: 8px; color: var(--text-dark); font-weight: 500;">Message</label>
+                <textarea id="contactMessage" name="message" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; min-height: 150px; resize: vertical;"></textarea>
+            </div>
+            <button type="submit" style="width: 100%; background: var(--primary-color); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.1em; cursor: pointer; transition: all 0.3s ease;">Send Message</button>
+        </form>
+    </div>
+</section>
+<script>
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const subject = document.getElementById('contactSubject').value;
+    const message = document.getElementById('contactMessage').value;
+
+    // Here you would typically send this data to a server
+    // For now, we'll just show an alert
+    alert('Thank you for your message! We will get back to you soon.');
+    event.target.reset();
+}
+</script>
+</html>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe hero content and features
+    document.querySelector('.hero-content').classList.add('animate-element');
+    document.querySelector('.hero-image').classList.add('animate-element');
+    
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.classList.add('animate-element');
+        observer.observe(feature);
+    });
+
+    // Add hover effect for features
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.classList.add('feature-hover');
+        });
+        feature.addEventListener('mouseleave', () => {
+            feature.classList.remove('feature-hover');
+        });
+    });
+</script>
+
+<style>
+    .animate-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    }
+
+    .hero-content {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: fadeInRight 1.2s ease-out forwards;
+    }
+
+    .how-it-works {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    .feature {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .feature.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .feature:hover img {
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+        transform: translateY(0);
+    }
+
+    .feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero-content {
+        animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: slideInRight 1s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+</html>
+</body>
+</html>
+
+
+<div id="achievement-popup" class="achievement-popup">
+    <div class="achievement-content">
+        <h3>Achievement Unlocked! 🎉</h3>
+        <p id="achievement-text"></p>
+    </div>
+</div>
+
+<style>
+    .wellness-tracking {
+        padding: 40px;
+        background: #fff;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 1200px;
+    }
+
+    .progress-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .progress-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .progress-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .achievement-popup {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    .achievement-content h3 {
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+    }
+
+    .achievement-content p {
+        margin: 0;
+        color: var(--text-light);
+    }
+</style>
+</html>
+</body>
+</html>
+
+<script>
+    // Initialize progress tracking
+    let progress = JSON.parse(localStorage.getItem('wellnessProgress')) || {
+        meditation: 0,
+        sleep: 0,
+        eating: 0
+    };
+
+    // Maximum values for each activity
+    const maxProgress = {
+        meditation: 7,
+        sleep: 5,
+        eating: 3
+    };
+
+    // Achievement messages
+    const achievements = {
+        meditation: 'Zen Master: Completed 7 days of meditation!',
+        sleep: 'Sleep Champion: Achieved 5 nights of quality sleep!',
+        eating: 'Mindful Eater: Tracked 3 mindful meals!'
+    };
+
+    // Update progress for an activity
+    function updateProgress(activity) {
+        if (progress[activity] < maxProgress[activity]) {
+            progress[activity]++;
+            localStorage.setItem('wellnessProgress', JSON.stringify(progress));
+            updateProgressCircles();
+
+            // Check if milestone achieved
+            if (progress[activity] === maxProgress[activity]) {
+                showAchievement(activity);
+            }
+        }
+    }
+
+    // Update visual progress circles
+    function updateProgressCircles() {
+        for (const activity in progress) {
+            const cards = document.querySelectorAll('.progress-card');
+            cards.forEach(card => {
+                const heading = card.querySelector('h3');
+                if (heading && heading.textContent.toLowerCase().includes(activity.toLowerCase())) {
+                    const circle = card.querySelector('.progress-circle');
+                    const text = circle.querySelector('.progress-text');
+                    const percentage = (progress[activity] / maxProgress[activity]) * 100;
+                    
+                    circle.style.background = `conic-gradient(var(--primary-color) ${percentage}%, #f0f0f0 ${percentage}%)`;
+                    text.textContent = `${progress[activity]}/${maxProgress[activity]}`;
+                }
+            });
+        }
+    }
+
+    // Show achievement popup
+    function showAchievement(activity) {
+        const popup = document.getElementById('achievement-popup');
+        const text = document.getElementById('achievement-text');
+        text.textContent = achievements[activity];
+        popup.style.display = 'block';
+
+        // Hide popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+    // Initialize progress circles on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProgressCircles();
+    });
+</script>
+</html>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe hero content and features
+    document.querySelector('.hero-content').classList.add('animate-element');
+    document.querySelector('.hero-image').classList.add('animate-element');
+    
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.classList.add('animate-element');
+        observer.observe(feature);
+    });
+
+    // Add hover effect for features
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.classList.add('feature-hover');
+        });
+        feature.addEventListener('mouseleave', () => {
+            feature.classList.remove('feature-hover');
+        });
+    });
+</script>
+
+<style>
+    .animate-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    }
+
+    .hero-content {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: fadeInRight 1.2s ease-out forwards;
+    }
+
+    .how-it-works {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    .feature {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .feature.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .feature:hover img {
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+        transform: translateY(0);
+    }
+
+    .feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero-content {
+        animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: slideInRight 1s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+</html>
+</body>
+</html>
+
+
+<div id="achievement-popup" class="achievement-popup">
+    <div class="achievement-content">
+        <h3>Achievement Unlocked! 🎉</h3>
+        <p id="achievement-text"></p>
+    </div>
+</div>
+
+<style>
+    .wellness-tracking {
+        padding: 40px;
+        background: #fff;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 1200px;
+    }
+
+    .progress-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .progress-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .progress-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .achievement-popup {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    .achievement-content h3 {
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+    }
+
+    .achievement-content p {
+        margin: 0;
+        color: var(--text-light);
+    }
+</style>
+</html>
+</body>
+</html>
+
+<script>
+    // Initialize progress tracking
+    let progress = JSON.parse(localStorage.getItem('wellnessProgress')) || {
+        meditation: 0,
+        sleep: 0,
+        eating: 0
+    };
+
+    // Maximum values for each activity
+    const maxProgress = {
+        meditation: 7,
+        sleep: 5,
+        eating: 3
+    };
+
+    // Achievement messages
+    const achievements = {
+        meditation: 'Zen Master: Completed 7 days of meditation!',
+        sleep: 'Sleep Champion: Achieved 5 nights of quality sleep!',
+        eating: 'Mindful Eater: Tracked 3 mindful meals!'
+    };
+
+    // Update progress for an activity
+    function updateProgress(activity) {
+        if (progress[activity] < maxProgress[activity]) {
+            progress[activity]++;
+            localStorage.setItem('wellnessProgress', JSON.stringify(progress));
+            updateProgressCircles();
+
+            // Check if milestone achieved
+            if (progress[activity] === maxProgress[activity]) {
+                showAchievement(activity);
+            }
+        }
+    }
+
+    // Update visual progress circles
+    function updateProgressCircles() {
+        for (const activity in progress) {
+            const cards = document.querySelectorAll('.progress-card');
+            cards.forEach(card => {
+                const heading = card.querySelector('h3');
+                if (heading && heading.textContent.toLowerCase().includes(activity.toLowerCase())) {
+                    const circle = card.querySelector('.progress-circle');
+                    const text = circle.querySelector('.progress-text');
+                    const percentage = (progress[activity] / maxProgress[activity]) * 100;
+                    
+                    circle.style.background = `conic-gradient(var(--primary-color) ${percentage}%, #f0f0f0 ${percentage}%)`;
+                    text.textContent = `${progress[activity]}/${maxProgress[activity]}`;
+                }
+            });
+        }
+    }
+
+    // Show achievement popup
+    function showAchievement(activity) {
+        const popup = document.getElementById('achievement-popup');
+        const text = document.getElementById('achievement-text');
+        text.textContent = achievements[activity];
+        popup.style.display = 'block';
+
+        // Hide popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+    // Initialize progress circles on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProgressCircles();
+    });
+</script>
+</html>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe hero content and features
+    document.querySelector('.hero-content').classList.add('animate-element');
+    document.querySelector('.hero-image').classList.add('animate-element');
+    
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.classList.add('animate-element');
+        observer.observe(feature);
+    });
+
+    // Add hover effect for features
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.classList.add('feature-hover');
+        });
+        feature.addEventListener('mouseleave', () => {
+            feature.classList.remove('feature-hover');
+        });
+    });
+</script>
+
+<style>
+    .animate-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    }
+
+    .hero-content {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: fadeInRight 1.2s ease-out forwards;
+    }
+
+    .how-it-works {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    .feature {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .feature.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .feature:hover img {
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+        transform: translateY(0);
+    }
+
+    .feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero-content {
+        animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: slideInRight 1s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+</html>
+</body>
+</html>
+
+
+<div id="achievement-popup" class="achievement-popup">
+    <div class="achievement-content">
+        <h3>Achievement Unlocked! 🎉</h3>
+        <p id="achievement-text"></p>
+    </div>
+</div>
+
+<style>
+    .wellness-tracking {
+        padding: 40px;
+        background: #fff;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 1200px;
+    }
+
+    .progress-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .progress-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .progress-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .achievement-popup {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    .achievement-content h3 {
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+    }
+
+    .achievement-content p {
+        margin: 0;
+        color: var(--text-light);
+    }
+</style>
+</html>
+</body>
+</html>
+
+<script>
+    // Initialize progress tracking
+    let progress = JSON.parse(localStorage.getItem('wellnessProgress')) || {
+        meditation: 0,
+        sleep: 0,
+        eating: 0
+    };
+
+    // Maximum values for each activity
+    const maxProgress = {
+        meditation: 7,
+        sleep: 5,
+        eating: 3
+    };
+
+    // Achievement messages
+    const achievements = {
+        meditation: 'Zen Master: Completed 7 days of meditation!',
+        sleep: 'Sleep Champion: Achieved 5 nights of quality sleep!',
+        eating: 'Mindful Eater: Tracked 3 mindful meals!'
+    };
+
+    // Update progress for an activity
+    function updateProgress(activity) {
+        if (progress[activity] < maxProgress[activity]) {
+            progress[activity]++;
+            localStorage.setItem('wellnessProgress', JSON.stringify(progress));
+            updateProgressCircles();
+
+            // Check if milestone achieved
+            if (progress[activity] === maxProgress[activity]) {
+                showAchievement(activity);
+            }
+        }
+    }
+
+    // Update visual progress circles
+    function updateProgressCircles() {
+        for (const activity in progress) {
+            const cards = document.querySelectorAll('.progress-card');
+            cards.forEach(card => {
+                const heading = card.querySelector('h3');
+                if (heading && heading.textContent.toLowerCase().includes(activity.toLowerCase())) {
+                    const circle = card.querySelector('.progress-circle');
+                    const text = circle.querySelector('.progress-text');
+                    const percentage = (progress[activity] / maxProgress[activity]) * 100;
+                    
+                    circle.style.background = `conic-gradient(var(--primary-color) ${percentage}%, #f0f0f0 ${percentage}%)`;
+                    text.textContent = `${progress[activity]}/${maxProgress[activity]}`;
+                }
+            });
+        }
+    }
+
+    // Show achievement popup
+    function showAchievement(activity) {
+        const popup = document.getElementById('achievement-popup');
+        const text = document.getElementById('achievement-text');
+        text.textContent = achievements[activity];
+        popup.style.display = 'block';
+
+        // Hide popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+    // Initialize progress circles on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProgressCircles();
+    });
+</script>
+</html>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe hero content and features
+    document.querySelector('.hero-content').classList.add('animate-element');
+    document.querySelector('.hero-image').classList.add('animate-element');
+    
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.classList.add('animate-element');
+        observer.observe(feature);
+    });
+
+    // Add hover effect for features
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.classList.add('feature-hover');
+        });
+        feature.addEventListener('mouseleave', () => {
+            feature.classList.remove('feature-hover');
+        });
+    });
+</script>
+
+<style>
+    .animate-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    }
+
+    .hero-content {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .hero-image {
+        animation: fadeInRight 1.2s ease-out forwards;
+    }
+
+    .how-it-works {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    .feature {
+        opacity: 0;
+        transform: translateY(3

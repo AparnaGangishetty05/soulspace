@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | SoulSpace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-menu li {
+            margin: 10px 0;
+        }
+        .sidebar-menu a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .sidebar-menu a:hover {
+            background: #e3f2ed;
+        }
+        .sidebar-menu a.active {
+            background: #2E8B57;
+            color: white;
+        }
+        .main-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-card h3 {
+            margin: 0;
+            color: #2E8B57;
+        }
+        .progress-section {
+            margin-bottom: 30px;
+        }
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: #2E8B57;
+            width: 75%;
+            transition: width 0.3s ease;
+        }
+        .appointments-list {
+            list-style: none;
+            padding: 0;
+        }
+        .appointment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .mood-tracker {
+            margin-top: 30px;
+        }
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+        .mood-day {
+            aspect-ratio: 1;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="SoulSpace Logo">
+        <h1>SoulSpace</h1>
+        <nav>
+            <a href="final1.html">Home</a>
+            <a href="appointments.html">Book Session</a>
+            <a href="#profile">Profile</a>
+            <a href="#logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#appointments">My Appointments</a></li>
+                <li><a href="#progress">Progress Tracking</a></li>
+                <li><a href="#goals">Goals & Tasks</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Welcome back, Sarah!</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>8</h3>
+                    <p>Sessions Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>75%</h3>
+                    <p>Goal Progress</p>
+                </div>
+                <div class="stat-card">
+                    <h3>4.8</h3>
+                    <p>Average Mood</p>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Current Goals</h3>
+                <div>
+                    <p>Stress Management</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upcoming-appointments">
+                <h3>Upcoming Appointments</h3>
+                <ul class="appointments-list">
+                    <li class="appointment-item">
+                        <div>
+                            <strong>Dr. Sarah Johnson</strong>
+                            <p>Thursday, March 10 - 2:00 PM</p>
+                        </div>
+                        <button onclick="window.location.href='appointments.html'">Reschedule</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mood-tracker">
+                <h3>Mood Tracker</h3>
+                <div class="mood-grid" id="moodGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize mood tracker grid
+        function initMoodGrid() {
+            const grid = document.getElementById('moodGrid');
+            const moods = ['😊', '😐', '😊', '😄', '😐', '😊', '😄'];
+            
+            moods.forEach((mood, index) => {
+                const day = document.createElement('div');
+                day.className = 'mood-day';
+                day.textContent = mood;
+                grid.appendChild(day);
+            });
+        }
+
+        // Initialize the dashboard
+        window.onload = () => {
+            initMoodGrid();
+        };
+    </script>
+</body>
+</html>

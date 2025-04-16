@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Links | SoulSpace</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .links-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .link-group {
+            margin-bottom: 30px;
+        }
+        .link-group h2 {
+            color: #2E8B57;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .link-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .link-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .link-item:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        .link-item i {
+            color: #2E8B57;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><img src='logo.jpg' alt='Logo' style='height: 80px; width: 80px; border-radius: 50%; vertical-align: middle; margin-right: 15px;'>SoulSpace</h1>
+    </header>
+
+    <div class="links-container">
+        <div class="link-group">
+            <h2>Main Navigation</h2>
+            <div class="link-list">
+                <a href="final1.html" class="link-item">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="dashboard.html" class="link-item">
+                    <i class="fas fa-columns"></i>
+                    Dashboard
+                </a>
+                <a href="appointments.html" class="link-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    Book Appointments
+                </a>
+            </div>
+        </div>
+
+        <div class="link-group">
+            <h2>User Access</h2>
+            <div class="link-list">
+                <a href="login.html" class="link-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                </a>
+                <a href="register.html" class="link-item">
+                    <i class="fas fa-user-plus"></i>
+                    Register
+                </a>
+            </div>
+        </div>
+
+        <div class="link-group">
+            <h2>Resources</h2>
+            <div class="link-list">
+                <a href="#" class="link-item">
+                    <i class="fas fa-book"></i>
+                    Mental Health Articles
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-hands-helping"></i>
+                    Support Groups
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-question-circle"></i>
+                    FAQ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #666;">
+        <p>&copy; 2024 SoulSpace. All rights reserved.</p>
+    </footer>
+</body>
+</html>
